@@ -1,0 +1,82 @@
+<%= wicked_pdf_stylesheet_link_tag "proposals" %>
+
+  <div class="proposal">
+    <div class="proposal-top clearfix">
+      <h1>// <%= @proposal.name %></h1>
+      <img src="http://www.businessonmarketst.com/wp-content/themes/BusinessonThemeStreet/images/logo.png" alt="BMS Logo">
+      <div class="proposal-chart">
+        <div class="proposal-chart-header clearfix">
+          <div class="proposal-chart-left">PHASE</div>
+          <div class="proposal-chart-right">Month</div>
+        </div>
+        <div class="proposal-chart-numbers">
+          <div class="proposal-chart-left"></div>
+          <div class="proposal-chart-right">
+            <ul class="proposal-chart-number clearfix">
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+              <li>6</li>
+              <li>7</li>
+              <li>8</li>
+              <li>9</li>
+              <li>10</li>
+              <li>11</li>
+              <li>12</li>
+            </ul>
+          </div>
+        </div>
+        <% @phases.each.with_index do |p,index| %>
+          <div class="proposal-chart-row clearfix">
+            <div class="proposal-chart-left"><%= p.shortname %></div>
+            <div class="proposal-chart-right">
+              <ul class="proposal-chart-select <%= p.department %>">
+                <% @timeline[index].each do |t| %>
+                  <li <% if (t === "1") %>class="selected"<% end %>><input type="checkbox"></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <p class="margin: 20px 0;">*Optional services that can help to further increase website conversion rates.</p>
+      <div class="departments">
+        <div class="departments-single">
+          <img src="http://cdn2.hubspot.net/hubfs/313589/research-and-planning-icon-50.png" alt="Research and Planning">
+          <p>Resarch &amp;<br>Planning</p>
+        </div>
+        <div class="departments-single">
+          <img src="http://cdn2.hubspot.net/hubfs/313589/marketing-icon-50.png" alt="Marketing">
+          <p>Marketing</p>
+        </div>
+        <div class="departments-single">
+          <img src="http://cdn2.hubspot.net/hubfs/313589/branding-icon-50.png" alt="Branding">
+          <p>Branding</p>
+        </div>
+        <div class="departments-single">
+          <img src="http://cdn2.hubspot.net/hubfs/313589/web-development-icon-50.png" alt="Tech">
+          <p>Tech</p>
+        </div>
+      </div>
+    </div>
+    <div class="proposal-bottom">
+      <% @phases.each.with_index do |p,index| %>
+        <% if index == 0 %>
+          <div class="phase-left-column">
+        <% elsif index == 2 %>
+          <div class="phase-right-column">
+        <% end %>
+        <div class="phase-single <%= p.department %>">
+          <h2><%= p.ptype %> - <span><%= p.name %> <%= p.cost %></span></h2>
+          <div class="phase-single-content">
+            <%= p.content.html_safe %>
+          </div>
+        </div>
+        <% if index == 1 || index == 3 %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>

@@ -1,0 +1,98 @@
+<h1>Create New Proposal</h1>
+<div class="new-proposal-form">
+  <%= form_for(@proposal) do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+    <%= f.hidden_field :propinfo, class: 'form-control' %>
+    <%= f.hidden_field :timeline, class: 'form-control' %>
+
+    <%= f.submit "Create Proposal", class: "form-control btn btn-primary" %>
+
+  <% end %>
+</div>
+<div class="proposal-preview">
+  <div class="proposal-chart">
+    <div class="proposal-chart-header clearfix">
+      <div class="proposal-chart-left">PHASE</div>
+      <div class="proposal-chart-right">Month</div>
+    </div>
+    <div class="proposal-chart-numbers">
+      <div class="proposal-chart-left"></div>
+      <div class="proposal-chart-right">
+        <ul class="proposal-chart-number clearfix">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+          <li>7</li>
+          <li>8</li>
+          <li>9</li>
+          <li>10</li>
+          <li>11</li>
+          <li>12</li>
+        </ul>
+      </div>
+    </div>
+    <div class="proposal-preview-rows">
+      <% @phases.each do |p| %>
+        <div class="proposal-chart-row hidden" id="phaseid-<%= p.id %>">
+          <div class="proposal-chart-left"><%= p.shortname %></div>
+          <div class="proposal-chart-right">
+            <ul class="proposal-chart-select <%= p.department %>">
+              <li><input type="checkbox"></li>
+              <li><input type="checkbox"></li>
+              <li><input type="checkbox"></li>
+              <li><input type="checkbox"></li>
+              <li><input type="checkbox"></li>
+              <li><input type="checkbox"></li>
+              <li><input type="checkbox"></li>
+              <li><input type="checkbox"></li>
+              <li><input type="checkbox"></li>
+              <li><input type="checkbox"></li>
+              <li><input type="checkbox"></li>
+              <li><input type="checkbox"></li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="phase-list">
+  <h2>Add Phase to Proposal</h2>
+  <select>
+    <% @phases.each do |p| %>
+      <option value="<%= p.id %>"><%= p.shortname %></option>
+    <% end %>
+  </select>
+  <button id="addPhase">Add Phase</button>
+</div>
+<div class="newPhase">
+  <h2>Add New Phase</h2>
+
+  <%= form_for(@phase, remote: true) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :shortname %>
+    <%= f.text_field :shortname, class: 'form-control' %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content, class: 'form-control' %>
+
+    <%= f.label :cost %>
+    <%= f.text_field :cost, class: 'form-control' %>
+
+    <%= f.label :department %>
+    <%= f.select :department, options_for_select([['Research & Planning','research'],['Marketing','marketing'],['Branding','branding'],['Tech','tech']],'research'), {}, class: 'form-control' %>
+
+    <%= f.label :ptype, "Type" %>
+    <%= f.text_field :ptype, class: 'form-control' %>
+
+    <%= f.submit "Add New Phase", class: "form-control btn btn-primary" %>
+
+  <% end %>
+</div>

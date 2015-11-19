@@ -1,0 +1,198 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6,label,p {
+  margin: 0;
+}
+
+a {
+  text-decoration:none;
+}
+
+body {
+  margin: 0;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.proposal-preview {
+  padding: 50px 0;
+}
+
+.proposal {
+  width: 100%;
+}
+
+.proposal-top {
+  position: relative;
+  width: 100%;
+  padding: 50px 8% 20px;
+  background-color: #f2f2f2;
+}
+
+.proposal-top h1 {
+  margin-bottom: 45px;
+  font-size: 50px;
+}
+
+.proposal-top > img {
+  position: absolute;
+  top: 50px;
+  right: 8%;
+  max-width: 80px;
+}
+
+.proposal-chart {
+  margin-bottom: 10px;
+}
+
+.proposal-chart-header {
+  text-align: center;
+}
+
+.proposal-chart-left {
+  float: left;
+  width: 25%;
+  padding: 3px 0;
+  min-height: 1px;
+}
+
+.proposal-chart-right {
+  float: left;
+  width: 75%;
+  min-height: 1px;
+}
+
+.proposal-chart-numbers, .proposal-chart-row {
+  margin-bottom: 2px;
+}
+
+.proposal-chart-numbers li, .proposal-chart-row li {
+  float: left;
+}
+
+.proposal-chart-number, .proposal-chart-select {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.proposal-chart-number > *, .proposal-chart-select > * {
+  float: left;
+  width: 8.33333333333%;
+}
+
+.proposal-chart-select li {
+  height: 41px;
+  border-left: 1px dotted #000;
+}
+
+.proposal-chart-select li:last-of-type {
+  border-right: 1px dotted #000;
+}
+
+.proposal-chart-select li input {
+  -webkit-appearance: none;
+  background: none;
+  width: 100%;
+  height: 100%;
+}
+
+.departments {
+  margin: 45px 0 10px;
+}
+
+.departments-single {
+  float: left;
+  width: 25%;
+  text-align: center;
+}
+
+.proposal-bottom {
+  position: relative;
+  padding: 50px 8%;
+  background-color: #fff;
+  -webkit-column-count: 2;
+     -moz-column-count: 2;
+          column-count: 2;
+}
+
+.phase-single {
+  float: left;
+  width: 50%;
+  padding: 0 3% 0 0;
+}
+
+.phase-single {
+  
+}
+
+.phase-single h2 {
+  margin: 0 0 5px;
+  font-size: 20px;
+}
+
+.phase-single h2 span {
+  color: #343533;
+}
+
+.phase-single ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.phase-single li:before {
+  content: "\00BB";
+  margin-right: 20px;
+}
+
+/* Special Select Colors */
+
+.proposal-chart-select.research li.selected {
+  background-color: orange;
+}
+
+.proposal-chart-select.branding li.selected {
+  background-color: lightblue;
+}
+
+.proposal-chart-select.marketing li.selected {
+  background-color: red;
+}
+
+.proposal-chart-select.tech li.selected {
+  background-color: green;
+}
+
+.phase-single.research h2 {
+  color: orange;
+}
+
+.phase-single.branding h2 {
+  color: lightblue;
+}
+
+.phase-single.marketing h2 {
+  color: red;
+}
+
+.phase-single.tech h2 {
+  color: green;
+}
